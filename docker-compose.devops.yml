@@ -54,6 +54,8 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
     expose:
       - 9092
+    ports:
+      - "9092:9092"
     depends_on:
       - zookeeper
     restart: always
@@ -110,10 +112,10 @@ services:
       - 9000
       - 8123
     ports:
-      - "8123:8123"
+      - "18123:8123"
       - "9000:9000"
     volumes:
-      - ./data/all-in-one/clickhouse/database:/var/lib/clickhouse
+#      - ./data/all-in-one/clickhouse/database:/var/lib/clickhouse
       - ./data/all-in-one/clickhouse/logs:/var/log
       - ./data/all-in-one/clickhouse/conf/users.xml:/etc/clickhouse-server/users.xml
       - ./data/all-in-one/clickhouse/conf/conf.d:/etc/clickhouse-server/conf.d
